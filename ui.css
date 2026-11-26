@@ -391,7 +391,9 @@
     inset 0 1px 0 rgba(255, 235, 240, 0.24);
 }
 
-.st-key-scarlet_modes label p {
+.st-key-scarlet_modes label p,
+.st-key-scarlet_modes label span,
+.st-key-scarlet_modes label div {
   color: var(--sw-ink) !important;
   font-weight: 600;
   font-family: var(--sw-sans);
@@ -402,7 +404,7 @@
 .st-key-scarlet_inputs,
 .st-key-scarlet_guide,
 .st-key-scarlet_results {
-  background: rgba(20, 9, 25, 0.94);
+  background: var(--sw-paper);
   backdrop-filter: blur(18px) saturate(140%);
   border: 1px solid var(--sw-border-lite);
   border-radius: 1.35rem;
@@ -419,14 +421,14 @@
 }
 
 .st-key-scarlet_guide {
-  background: linear-gradient(165deg, rgba(35, 13, 40, 0.94) 0%, rgba(22, 9, 26, 0.94) 100%);
+  background: linear-gradient(165deg, rgba(35, 13, 40, 0.9) 0%, rgba(22, 9, 26, 0.88) 100%);
   border-color: var(--sw-border);
   animation: soft-rise 0.7s var(--sw-ease) 0.2s both;
 }
 
 .st-key-scarlet_results {
-  margin-top: 0.5rem;
-  border-color: rgba(225, 29, 72, 0.34);
+  margin-top: 0.4rem;
+  border-color: rgba(225, 29, 72, 0.3);
   animation: soft-rise 0.55s var(--sw-ease) both;
 }
 
@@ -443,8 +445,7 @@
   color: var(--sw-ink) !important;
   font-family: var(--sw-display);
   font-weight: 600;
-  line-height: 1.22;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 .st-key-scarlet_inputs h2 {
@@ -458,46 +459,32 @@
 }
 
 .st-key-scarlet_results h2 {
-  font-size: 1.95rem;
+  font-size: 1.9rem;
   color: #fff2f4 !important;
-  margin-bottom: 0.6rem;
 }
 
 .st-key-scarlet_results h3 {
   font-size: 1.55rem;
   color: var(--sw-rose-gold) !important;
-  margin-bottom: 0.4rem;
 }
 
 /* ── Explicit high-contrast text inside cards ──────────────── */
-/* IMPORTANT: Never override font-family on bare <span>/<div> because
-   Streamlit Material icons (<span data-testid="stIconMaterial">) rely on
-   their own icon font; overriding it turns icons into overlapping text. */
-.st-key-scarlet_inputs [data-testid="stMarkdownContainer"] :is(p, li),
-.st-key-scarlet_inputs label p,
-.st-key-scarlet_guide [data-testid="stMarkdownContainer"] :is(p, li),
-.st-key-scarlet_results [data-testid="stMarkdownContainer"] :is(p, li) {
-  color: var(--sw-ink) !important;
+.st-key-scarlet_inputs p,
+.st-key-scarlet_inputs span,
+.st-key-scarlet_inputs div,
+.st-key-scarlet_guide p,
+.st-key-scarlet_guide span,
+.st-key-scarlet_guide div,
+.st-key-scarlet_results p,
+.st-key-scarlet_results span {
+  color: var(--sw-ink);
   font-family: var(--sw-sans);
-  line-height: 1.6;
 }
 
-.st-key-scarlet_results [data-testid="stMarkdownContainer"] :is(strong, b) {
-  color: var(--sw-gold-soft) !important;
-  font-weight: 700;
-}
-
-.st-key-scarlet_results [data-testid="stMarkdownContainer"] a {
-  color: var(--sw-rose-gold) !important;
-}
-
-.st-key-scarlet_results [data-testid="stMarkdownContainer"] code {
-  background: rgba(59, 22, 71, 0.7);
-  color: var(--sw-gold-soft) !important;
-  padding: 0.12rem 0.38rem;
-  border-radius: 0.35rem;
-  font-family: var(--sw-mono);
-  font-size: 0.88em;
+.st-key-scarlet_inputs label p,
+.st-key-scarlet_results summary p,
+.st-key-scarlet_results [data-testid="stMarkdownContainer"] p {
+  color: var(--sw-ink) !important;
 }
 
 /* ── Form elements ─────────────────────────────────────────── */
@@ -726,91 +713,65 @@
 
 /* ── Alerts (info / warning / error) ───────────────────────── */
 .st-key-scarlet_results [data-testid="stAlert"] [role="alert"] {
-  background: linear-gradient(135deg, #340d23, #240c30);
+  background: linear-gradient(135deg, rgba(56, 12, 36, 0.85), rgba(34, 12, 46, 0.85));
   color: var(--sw-ink) !important;
-  border: 1px solid rgba(225, 29, 72, 0.48);
+  border: 1px solid rgba(225, 29, 72, 0.42);
   border-radius: 0.85rem;
-  padding: 0.9rem 1.1rem;
   box-shadow: 0 6px 20px rgba(10, 2, 12, 0.4);
 }
 
 .st-key-scarlet_results [data-testid="stAlert"] [role="alert"] p,
-.st-key-scarlet_results [data-testid="stAlert"] [role="alert"] li {
+.st-key-scarlet_results [data-testid="stAlert"] [role="alert"] span {
   color: var(--sw-ink) !important;
-  font-family: var(--sw-sans);
-  line-height: 1.55;
-}
-
-.st-key-scarlet_results [data-testid="stAlert"] [data-testid="stAlertDynamicIcon"] {
-  color: var(--sw-rose-gold) !important;
 }
 
 .st-key-scarlet_results [data-testid="stCaptionContainer"] p {
   color: var(--sw-subtext) !important;
-  font-family: var(--sw-sans);
-  line-height: 1.5;
 }
 
 /* ── Expanders (recipe cards) ──────────────────────────────── */
 .st-key-scarlet_results [data-testid="stExpander"] {
+  position: relative;
   border-radius: 0.85rem;
-  background: #1c0c24;
-  border: 1px solid rgba(245, 194, 184, 0.18);
-  margin-bottom: 0.55rem;
+  background: linear-gradient(155deg, rgba(32, 13, 39, 0.88), rgba(20, 9, 25, 0.9));
+  border: 1px solid var(--sw-border-lite);
   transition:
     border-color 0.25s var(--sw-ease),
     box-shadow 0.25s var(--sw-ease),
-    background-color 0.25s var(--sw-ease);
+    transform 0.22s var(--sw-ease);
 }
 
 .st-key-scarlet_results [data-testid="stExpander"]:hover {
-  background: #220f2b;
-  border-color: rgba(225, 29, 72, 0.52);
+  border-color: rgba(225, 29, 72, 0.48);
   box-shadow:
-    0 8px 24px rgba(136, 14, 40, 0.28),
+    0 8px 26px rgba(136, 14, 40, 0.28),
     inset 3px 0 0 var(--sw-scarlet);
+  transform: translateY(-1px);
 }
 
 .st-key-scarlet_results [data-testid="stExpander"] details {
-  border: none !important;
-  border-radius: 0.85rem !important;
-  background: transparent !important;
+  border-color: transparent;
 }
 
-.st-key-scarlet_results [data-testid="stExpander"] summary {
-  padding: 0.85rem 1.1rem !important;
-  background: transparent !important;
-}
-
-.st-key-scarlet_results [data-testid="stExpander"] summary p {
+.st-key-scarlet_results [data-testid="stExpander"] summary p,
+.st-key-scarlet_results [data-testid="stExpander"] summary span {
   color: var(--sw-ink) !important;
-  font-family: var(--sw-sans) !important;
-  font-weight: 600 !important;
-  font-size: 0.98rem !important;
-  line-height: 1.45 !important;
+  font-weight: 600;
 }
 
-.st-key-scarlet_results [data-testid="stExpander"] summary :is(svg, [data-testid="stIconMaterial"]) {
+.st-key-scarlet_results [data-testid="stExpander"] summary svg {
   color: var(--sw-rose-gold) !important;
-}
-
-.st-key-scarlet_results [data-testid="stExpanderDetails"] {
-  background: rgba(16, 7, 20, 0.78);
-  border-top: 1px solid rgba(245, 194, 184, 0.14) !important;
-  border-radius: 0 0 0.85rem 0.85rem;
-  padding: 1rem 1.2rem 1.15rem !important;
 }
 
 /* ── stText elements ───────────────────────────────────────── */
 .st-key-scarlet_results [data-testid="stText"],
-.st-key-scarlet_results [data-testid="stText"] :is(div, span, p):not([data-testid="stIconMaterial"]) {
-  white-space: pre-wrap !important;
-  overflow-wrap: anywhere !important;
-  word-break: break-word !important;
+.st-key-scarlet_results [data-testid="stText"] > div {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
   color: var(--sw-ink) !important;
-  font-family: var(--sw-sans) !important;
-  font-size: 0.95rem !important;
-  line-height: 1.62 !important;
+  font-family: var(--sw-sans);
+  font-size: 0.95rem;
+  line-height: 1.58;
 }
 
 /* ── Global Streamlit text & button safety net ─────────────── */

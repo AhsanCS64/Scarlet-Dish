@@ -967,3 +967,30 @@
   letter-spacing: 0.12em;
   font-family: var(--sw-kicker-font);
 }
+
+/* Adaptation plan */
+.adapt-hero, .adapt-change, .adapt-keep, .adapt-ingredient, .adapt-step {
+  border: 1px solid var(--sw-border-lite);
+  background: linear-gradient(145deg, rgba(43, 16, 48, .88), rgba(22, 9, 27, .92));
+  border-radius: .9rem;
+}
+.adapt-hero { padding: 1.5rem 1.7rem; margin: .7rem 0 1.5rem; border-color: var(--sw-border); }
+.adapt-eyebrow { color: var(--sw-rose-gold) !important; text-transform: uppercase; letter-spacing: .14em; font-size: .72rem; font-weight: 700; }
+.adapt-hero h2 { color: var(--sw-ink); margin: .45rem 0; font-family: var(--sw-display); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+.adapt-hero p, .adapt-change p, .adapt-step p { color: var(--sw-ink); margin: 0; line-height: 1.6; }
+.adapt-hero p { color: var(--sw-subtext); }
+.adapt-change { display: flex; gap: 1rem; padding: 1rem 1.15rem; margin: .7rem 0; transition: border-color .2s, transform .2s; }
+.adapt-change:hover, .adapt-ingredient:hover, .adapt-step:hover { border-color: var(--sw-scarlet); transform: translateY(-2px); }
+.adapt-number, .adapt-step > span { flex: none; color: var(--sw-rose-gold) !important; font-family: var(--sw-mono); font-weight: 700; }
+.adapt-change small { display: block; color: var(--sw-subtext); margin-top: .4rem; line-height: 1.5; }
+.adapt-keep { padding: 1rem 1.2rem; margin: 1.2rem 0; }
+.adapt-keep strong { color: var(--sw-rose-gold); }
+.adapt-keep > div { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .7rem; }
+.adapt-keep span { color: var(--sw-ink); border: 1px solid var(--sw-border); border-radius: 999px; padding: .35rem .7rem; }
+.adapt-ingredients { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: .65rem; margin: 1rem 0; }
+.adapt-ingredient { padding: .8rem 1rem; transition: border-color .2s, transform .2s; }
+.adapt-ingredient span { color: var(--sw-ink); font-weight: 600; }
+.adapt-ingredient small { display: block; color: var(--sw-rose-gold); margin-top: .3rem; }
+.adapt-step { display: flex; gap: 1rem; padding: 1rem 1.15rem; margin: .65rem 0; transition: border-color .2s, transform .2s; }
+.st-key-scarlet_results [data-testid="stTabs"] button { color: var(--sw-subtext) !important; }
+.st-key-scarlet_results [data-testid="stTabs"] button[aria-selected="true"] { color: var(--sw-ink) !important; }

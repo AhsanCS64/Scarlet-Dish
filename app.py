@@ -1,6 +1,7 @@
 """Streamlit interface for Scarlet Dish."""
 from base64 import b64encode
 from functools import partial
+from html import escape
 import os
 from pathlib import Path
 from threading import RLock
@@ -70,7 +71,7 @@ MODE_GUIDES = {
         "spinner": "Preparing your adaptation…",
     },
 }
-mode = st.radio("Find a recipe", tuple(MODE_GUIDES), horizontal=True,
+mode = st.radio("Find a recipe", ("Adapt a dish", "Pantry", "Similar dishes"), horizontal=True,
                 key="scarlet_modes", label_visibility="collapsed")
 guide = MODE_GUIDES[mode]
 
@@ -139,28 +140,25 @@ def show_adaptation(result):
     if result["status"] != "ok":
         st.info(result["message"])
         return
-    st.subheader(result["title"], anchor=False)
-    st.caption("Adaptation plan. Use the original recipe's quantities.")
+    st.html(f'<div class="adapt-hero"><span class="adapt-eyebrow">Your cuisine adaptation</span><h2>{escape(str(result["title"]))}</h2><p>Use the original recipe’s quantities as your starting point.</p></div>')
     if result["catalog_note"]:
         st.warning(result["catalog_note"])
-    for change in result["changes"]:
-        st.write(change["instruction"])
-        st.caption(change["reason"])
+    st.markdown("### The flavor plan")
+    for number, change in enumerate(result["changes"], 1):
+        st.html(f'<div class="adapt-change"><span class="adapt-number">{number:02d}</span><div><p>{escape(str(change["instruction"]))}</p><small>{escape(str(change["reason"]))}</small></div></div>')
     if result["identity_preserved"]:
-        st.markdown("**What to keep**")
-        for detail in result["identity_preserved"]:
-            st.text(detail)
-    with st.expander("Ingredients and adapted method"):
-        ingredients_column, method_column = st.columns((1, 2), gap="medium")
-        with ingredients_column:
-            st.markdown("**Ingredients**")
-            for item in result["ingredients"]:
-                suffix = " (optional addition)" if item["kind"] == "optional_addition" else ""
-                st.text(item["name"] + suffix)
-        with method_column:
-            st.markdown("**Method**")
-            for step in result["steps"]:
-                st.text(f"{step['position']}. {step['instruction']}")
+        st.html('<div class="adapt-keep"><strong>Keep the heart of the dish</strong><div>' + "".join(f'<span>{escape(str(detail))}</span>' for detail in result["identity_preserved"]) + '</div></div>')
+    ingredients_tab, method_tab = st.tabs((f'Ingredients ({len(result["ingredients"])})', f'Method ({len(result["steps"])})'))
+    with ingredients_tab:
+        st.caption("Use the original recipe for amounts. Optional additions are marked below.")
+        st.html('<div class="adapt-ingredients">' + "".join(
+            f'<div class="adapt-ingredient"><span>{escape(str(item["name"]))}</span>'
+            + ('<small>Optional addition</small>' if item["kind"] == "optional_addition" else '') + '</div>'
+            for item in result["ingredients"]
+        ) + '</div>')
+    with method_tab:
+        for step in result["steps"]:
+            st.html(f'<div class="adapt-step"><span>{escape(str(step["position"]))}</span><p>{escape(str(step["instruction"]))}</p></div>')
     if result["references"]:
         with st.expander("References"):
             for reference in result["references"]:

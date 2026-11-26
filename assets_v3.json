@@ -1,0 +1,46 @@
+{
+  "adaptation_references.json": {
+    "bytes": 2604,
+    "sha256": "7bbff5aa339e76d905426dfb2e650502135c102f908179fb88f3310d577075f3"
+  },
+  "catalog.jsonl": {
+    "bytes": 40677113,
+    "sha256": "2753ea862afffd70abeb1a23e5a8c6eae6dd07ea834d98378e9b8971d78d2044"
+  },
+  "encoder/config.json": {
+    "bytes": 745,
+    "sha256": "6a7e130bc39a770a4b1a1ec78e95c8206c4dc3003e82b40ed939a1128bd18449"
+  },
+  "encoder/model.safetensors": {
+    "bytes": 90864192,
+    "sha256": "4759aecf6767aaf6e53f03cadf8a5442959a183a791853007186f4a0656ac239"
+  },
+  "encoder/tokenizer.json": {
+    "bytes": 711649,
+    "sha256": "851ca67100d372ca3ae031a6abd168f53489eebfd7d89523f35c5c9b4d372c3c"
+  },
+  "encoder/tokenizer_config.json": {
+    "bytes": 594,
+    "sha256": "872b6936be955bc3aea75ed599264d865626d68feede7e58b01e378e6332bd74"
+  },
+  "ingredient_aliases.json": {
+    "bytes": 5398,
+    "sha256": "17178208d88dacfcfad04ca21632812bc7bc7f463b25d8ce3d69a62186944d50"
+  },
+  "pantry_config.json": {
+    "bytes": 1073,
+    "sha256": "0060ac714c4c28d8c416fd495601bb5b47a3f445d33ab9691d31fc5dc8dda8fb"
+  },
+  "recipe_embeddings.npz": {
+    "bytes": 31031458,
+    "sha256": "7e04a75dfd4a44fde96a4ddc6fa2c2d9f2dd2a3e29ac38e4a389ad746dd4ed9f"
+  },
+  "retrieval_config.json": {
+    "bytes": 806,
+    "sha256": "92d580cb65275903cd51ee585984e6a243a46f6673fd89357296e8a1d72c3ed3"
+  },
+  "seasons.json": {
+    "bytes": 1442,
+    "sha256": "7604d5901d3e9909bbc1e0f8baa19e0c48616931bcaf3d3cee6f4846fe0ce4dc"
+  }
+}

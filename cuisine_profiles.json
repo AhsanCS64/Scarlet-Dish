@@ -1,0 +1,208 @@
+{
+  "Japanese": {
+    "layered_rice": {
+      "ingredients": "shiitake",
+      "instruction": "Cook and drain sliced shiitake separately, then scatter them over the rice layer.",
+      "reason": "Seasoned mushrooms add a Japanese-inspired rice topping while keeping the original layers and moisture balance.",
+      "reference": "JP-MAFF-SHOI"
+    },
+    "rice": {
+      "ingredients": "shiitake",
+      "instruction": "Cook sliced shiitake separately and serve them over the prepared rice.",
+      "reason": "The shiitake topping draws on Japanese mixed-rice recipes and preserves the source rice method.",
+      "reference": "JP-MAFF-SHOI"
+    },
+    "simmered": {
+      "ingredients": "miso",
+      "instruction": "Whisk a little miso into a small amount of the cooked sauce and stir it back in off the heat. Taste before adding more.",
+      "reason": "Miso adds a savory accent to the existing sauce, while the original sauce and main ingredient still lead.",
+      "reference": "JP-MAFF-DENGAKU"
+    },
+    "wet_heat": {
+      "ingredients": "kombu and shiitake dashi",
+      "instruction": "For a savory broth, try a small splash of unsalted kombu and shiitake dashi in one serving before seasoning.",
+      "reason": "A small trial portion gives a Japanese-inspired broth accent without changing the cooking method.",
+      "reference": "JP-MAFF-SHOI"
+    },
+    "roasted": {
+      "ingredients": "miso",
+      "instruction": "Thin a little miso with water and brush a small amount onto a cooked portion just before serving.",
+      "reason": "A thin miso finish draws on dengaku and leaves the original roasting, grilling or frying step intact.",
+      "reference": "JP-MAFF-DENGAKU"
+    },
+    "sweet": {
+      "ingredients": "kinako",
+      "instruction": "Try a light dusting of unsweetened kinako (roasted soybean flour) on one finished serving.",
+      "reason": "A roasted-soy finish adds a Japanese-inspired accent without changing dough, batter, sweetness or setting ratios.",
+      "reference": null
+    },
+    "finish": {
+      "ingredients": "miso",
+      "instruction": "Taste a small serving with a light drizzle of miso loosened with water and adjust before seasoning the rest.",
+      "reason": "A tasting portion keeps the source recipe intact while testing a Japanese-style miso accent.",
+      "reference": "JP-MAFF-DENGAKU"
+    }
+  },
+  "Korean": {
+    "rice": {
+      "ingredients": "toasted sesame oil and roasted gim",
+      "instruction": "Add toasted sesame oil and crushed roasted gim to a cooked rice portion just before serving.",
+      "reason": "The sesame and seaweed finish adds aroma without changing the rice water or cooking time."
+    },
+    "simmered": {
+      "ingredients": "doenjang and scallion",
+      "instruction": "Dissolve a little doenjang in a spoonful of the cooked stew. Stir it back into one serving off the heat and finish with sliced scallion.",
+      "reason": "Fermented soybean paste adds savory depth to the existing broth or sauce."
+    },
+    "roasted": {
+      "ingredients": "gochujang, toasted sesame oil and rice vinegar",
+      "instruction": "Stir gochujang, sesame oil and rice vinegar into a thin glaze. Brush it onto the cooked portion just before serving.",
+      "reason": "The sweet-spicy glaze accents the original char and stays away from direct heat."
+    },
+    "sweet": {
+      "ingredients": "roasted soybean powder and toasted sesame",
+      "instruction": "Dust one finished serving with roasted soybean powder and toasted sesame just before serving.",
+      "reason": "An injeolmi-inspired finish adds nuttiness while preserving the original batter or filling."
+    },
+    "finish": {
+      "ingredients": "toasted sesame oil, scallion and roasted sesame",
+      "instruction": "Finish one serving with a little sesame oil, sliced scallion and roasted sesame.",
+      "reason": "The toasted and fresh aromatics build a Korean-inspired accent over the existing seasoning."
+    }
+  },
+  "Thai": {
+    "rice": {
+      "ingredients": "crispy shallots, lime zest and Thai basil",
+      "instruction": "Finish cooked rice with crispy shallots, a little lime zest and torn Thai basil.",
+      "reason": "The shallots and herbs add contrast while keeping the rice texture and liquid ratio."
+    },
+    "simmered": {
+      "ingredients": "lemongrass and makrut lime leaf",
+      "instruction": "Steep bruised lemongrass and makrut lime leaf in a small ladleful of the cooked sauce, strain, then stir back a little before serving.",
+      "reason": "Infusing a small portion adds citrus aroma while keeping the original broth or sauce."
+    },
+    "roasted": {
+      "ingredients": "lime juice, bird’s-eye chile and cilantro",
+      "instruction": "Mix lime juice, a little minced chile and cilantro. Spoon over the cooked portion when serving.",
+      "reason": "A fresh chile-lime dressing contrasts with a grilled or roasted surface."
+    },
+    "sweet": {
+      "ingredients": "coconut cream and toasted coconut",
+      "instruction": "Spoon a little coconut cream over one finished serving and add toasted coconut.",
+      "reason": "The coconut topping adds richness outside the original batter or setting mixture."
+    },
+    "finish": {
+      "ingredients": "lime, Thai basil and crispy shallots",
+      "instruction": "Add a squeeze of lime, torn Thai basil and crispy shallots just before serving.",
+      "reason": "This finish adds acidity, aroma and crunch to the existing dish."
+    }
+  },
+  "Mexican": {
+    "rice": {
+      "ingredients": "roasted poblano and cilantro",
+      "instruction": "Fold finely diced roasted poblano and chopped cilantro into cooked rice at serving, or scatter them over a layered rice portion.",
+      "reason": "A roasted chile and herb finish preserves the original grains and layers."
+    },
+    "simmered": {
+      "ingredients": "ancho chile, Mexican oregano and lime",
+      "instruction": "Soften a pinch of ground ancho chile and Mexican oregano in a spoonful of the cooked sauce over low heat. Stir it into one portion and finish with a little lime off the heat.",
+      "reason": "Ancho and oregano deepen the existing sauce while lime brightens the finish."
+    },
+    "roasted": {
+      "ingredients": "guajillo chile, garlic and lime",
+      "instruction": "Mix softened guajillo chile with garlic and lime into a thin dressing. Brush or spoon it onto the cooked portion just before serving.",
+      "reason": "A guajillo-lime finish adds chile depth without disturbing the original char."
+    },
+    "sweet": {
+      "ingredients": "Mexican cinnamon and toasted pepitas",
+      "instruction": "Add a light dusting of Mexican cinnamon and toasted pepitas to one finished serving.",
+      "reason": "Warm spice and crunch sit on top of the dessert without changing its structure."
+    },
+    "finish": {
+      "ingredients": "lime, cilantro and pickled red onion",
+      "instruction": "Top one serving with chopped cilantro and pickled red onion, then add lime to taste.",
+      "reason": "The fresh and pickled accents lift the original seasoning."
+    }
+  },
+  "Italian": {
+    "rice": {
+      "ingredients": "lemon zest, parsley and extra-virgin olive oil",
+      "instruction": "Fold chopped parsley, a little lemon zest and olive oil into a cooked rice portion or scatter them over a layered portion.",
+      "reason": "The herb-and-citrus finish preserves the original rice method."
+    },
+    "simmered": {
+      "ingredients": "basil, extra-virgin olive oil and cracked black pepper",
+      "instruction": "Stir torn basil into one portion of the finished sauce off the heat, then finish with olive oil and cracked black pepper.",
+      "reason": "Fresh basil and olive oil complement the sauce while preserving its original reduction and spices."
+    },
+    "roasted": {
+      "ingredients": "rosemary, garlic and lemon",
+      "instruction": "Warm chopped rosemary and garlic in a little olive oil, remove from the heat and add lemon zest. Brush onto the cooked portion at serving.",
+      "reason": "The rosemary-garlic oil complements browning and adds aroma after cooking."
+    },
+    "sweet": {
+      "ingredients": "orange zest and shaved dark chocolate",
+      "instruction": "Finish one serving with orange zest and shaved dark chocolate just before serving.",
+      "reason": "The citrus and chocolate topping leaves the original sweetness and setting ratios intact."
+    },
+    "finish": {
+      "ingredients": "flat-leaf parsley, lemon zest and garlic",
+      "instruction": "Chop parsley with lemon zest and a little garlic and sprinkle over one serving just before eating.",
+      "reason": "A gremolata-inspired finish adds a bright herbal accent without changing the original spice base."
+    }
+  },
+  "Turkish": {
+    "rice": {
+      "ingredients": "toasted pine nuts and dill",
+      "instruction": "Scatter toasted pine nuts and chopped dill over cooked rice just before serving.",
+      "reason": "This topping adds a pilaf-inspired nutty finish and keeps the original grains intact."
+    },
+    "simmered": {
+      "ingredients": "Aleppo pepper, dried mint and butter",
+      "instruction": "Briefly warm Aleppo pepper and dried mint in a little melted butter and drizzle over one serving of the cooked stew or soup.",
+      "reason": "A spiced butter finish perfumes the original broth or sauce."
+    },
+    "roasted": {
+      "ingredients": "sumac, red onion and parsley",
+      "instruction": "Toss thinly sliced red onion and parsley with sumac and serve alongside the cooked portion.",
+      "reason": "The tang and crunch complement the existing grilled or roasted flavors."
+    },
+    "sweet": {
+      "ingredients": "pistachios and orange blossom water",
+      "instruction": "Perfume a spoonful of the recipe’s existing sauce with a drop of food-grade orange blossom water and add crushed pistachios at serving. Use the pistachios alone if there is no sauce.",
+      "reason": "The finishing aroma and crunch leave the original dessert method intact."
+    },
+    "finish": {
+      "ingredients": "sumac, parsley and olive oil",
+      "instruction": "Finish a tasting portion with sumac, chopped parsley and a little olive oil.",
+      "reason": "The tart and herbal finish accents the source seasoning."
+    }
+  },
+  "Bangladeshi": {
+    "rice": {
+      "ingredients": "fried onions, ghee and green chile",
+      "instruction": "Top cooked rice with fried onions and sliced green chile, and drizzle a little warm ghee just before serving.",
+      "reason": "The aromatic finish complements layered rice and preserves the source method."
+    },
+    "simmered": {
+      "ingredients": "panch phoron, dried red chile and mustard oil",
+      "instruction": "Briefly bloom panch phoron and dried red chile in a little culinary mustard oil. Spoon the tempering over one portion of the cooked stew or dal.",
+      "reason": "The finishing tempering adds whole-spice aroma to the existing sauce or lentils."
+    },
+    "roasted": {
+      "ingredients": "roasted cumin, green chile and lime",
+      "instruction": "Mix roasted ground cumin, minced green chile and lime. Spoon a little over the cooked portion just before serving.",
+      "reason": "A cumin-chile-lime finish complements the existing browning and spice paste."
+    },
+    "sweet": {
+      "ingredients": "date palm jaggery and toasted coconut",
+      "instruction": "Add a few shavings of date palm jaggery and toasted coconut to one portion at serving.",
+      "reason": "A pitha-inspired finish adds caramel and coconut notes without changing the original batter or filling."
+    },
+    "finish": {
+      "ingredients": "green chile, cilantro and mustard oil",
+      "instruction": "Add minced green chile, cilantro and a small drizzle of culinary mustard oil to one serving.",
+      "reason": "The fresh aromatics and pungent oil build a Bangladeshi-inspired finishing accent."
+    }
+  }
+}

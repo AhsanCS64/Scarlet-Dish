@@ -1,0 +1,571 @@
+/* ============================================================
+   SCARLET DISH — Scarlet Witch Theme
+   Color palette inspired by Wanda Maximoff's iconic aesthetic:
+   deep crimsons, midnight purples, rose golds, and hex-glows.
+   ============================================================ */
+
+:root {
+  /* Core palette */
+  --sw-crimson:       #8b0000;   /* deep blood crimson */
+  --sw-scarlet:       #c0152a;   /* Scarlet Witch signature red */
+  --sw-scarlet-lite:  #e02040;   /* brighter scarlet for hover/active */
+  --sw-ruby:          #a81836;   /* mid-tone ruby red */
+  --sw-rose:          #f7c5cc;   /* soft rose highlight */
+  --sw-blush:         #fce8ec;   /* blush pink tint */
+
+  /* Dark purples — Chaos Magic */
+  --sw-void:          #0e0710;   /* near-black purple void */
+  --sw-midnight:      #1a0d20;   /* deep midnight purple */
+  --sw-dusk:          #2d1240;   /* dark dusk purple */
+  --sw-plum:          #4a1a5e;   /* rich plum */
+  --sw-mist:          #7b3f8c;   /* mystic purple mist */
+
+  /* Surfaces & text */
+  --sw-ink:           #f5e8ea;   /* primary text — warm near-white (on dark bg) */
+  --sw-subtext:       #d4b0bb;   /* secondary / muted text — clearly readable */
+  --sw-caption:       #b08898;   /* captions, helper text — still legible */
+  --sw-paper:         #180c1e;   /* card/surface background */
+  --sw-paper-raised:  #221030;   /* slightly lighter card */
+  --sw-paper-top:     #2e1540;   /* topmost card layer */
+  --sw-border:        #5a2060;   /* border color */
+  --sw-border-lite:   #3d1550;   /* subtle border */
+  --sw-field:         #1e0d28;   /* input field background */
+  --sw-field-border:  #7a3090;   /* input field border */
+  --sw-hex-glow:      #c0152a40; /* scarlet glow (semi-transparent) */
+  --sw-magic-glow:    #9b30cf30; /* purple magic glow */
+
+  /* Typography */
+  --sw-serif: Georgia, "Times New Roman", serif;
+  --sw-sans: system-ui, -apple-system, sans-serif;
+}
+
+/* ── App shell ─────────────────────────────────────────────── */
+[data-testid="stAppViewContainer"] {
+  background:
+    radial-gradient(ellipse at 15% 0%, #3d0a5020 0, transparent 50%),
+    radial-gradient(ellipse at 85% 100%, #8b000018 0, transparent 45%),
+    linear-gradient(170deg, #0e0710 0%, #180c1e 50%, #0d0710 100%);
+  color: var(--sw-ink);
+}
+
+[data-testid="stHeader"] {
+  background: transparent;
+}
+
+[data-testid="stMainBlockContainer"] {
+  max-width: 76rem;
+  padding: 3.5rem clamp(1rem, 4vw, 3rem) 5rem;
+}
+
+/* ── Sidebar (if present) ───────────────────────────────────── */
+[data-testid="stSidebar"] {
+  background: var(--sw-midnight);
+  border-right: 1px solid var(--sw-border-lite);
+}
+
+/* ── Hero banner ────────────────────────────────────────────── */
+.scarlet-hero {
+  display: grid;
+  position: relative;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 32%);
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 1.75rem;
+  padding: clamp(2rem, 5.5vw, 4rem) clamp(1.65rem, 5vw, 3.6rem);
+  gap: clamp(1rem, 3vw, 3.5rem);
+  margin: 0 0 1.4rem;
+  /* Dramatic Scarlet Witch gradient */
+  background:
+    radial-gradient(ellipse at 10% 110%, #8b000050 0, transparent 55%),
+    radial-gradient(ellipse at 90% -10%, #4a1a5e60 0, transparent 50%),
+    linear-gradient(135deg, #1a0515 0%, #3d0a22 40%, #5a0f35 70%, #2d0a40 100%);
+  border: 1px solid #7a2050;
+  box-shadow:
+    0 0 0 1px #c0152a18 inset,
+    0 20px 60px #8b000040,
+    0 0 120px #4a1a5e20;
+}
+
+/* Hex-pattern overlay — subtle mystic texture */
+.scarlet-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 28px,
+      #ffffff03 28px,
+      #ffffff03 29px
+    ),
+    repeating-linear-gradient(
+      -60deg,
+      transparent,
+      transparent 28px,
+      #ffffff03 28px,
+      #ffffff03 29px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Chaos magic glow orb */
+.scarlet-hero::after {
+  content: "";
+  position: absolute;
+  right: 30%;
+  top: -40%;
+  width: 22rem;
+  height: 22rem;
+  background: radial-gradient(circle, #c0152a18 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scarlet-hero > * { position: relative; z-index: 1; }
+
+.scarlet-hero .scarlet-kicker {
+  margin: 0 0 .6rem;
+  color: #f7a8b8;
+  font-size: .73rem;
+  line-height: 1.4;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: var(--sw-sans);
+  text-shadow: 0 0 12px #c0152a80;
+}
+
+.scarlet-hero h1 {
+  margin: 0 0 .75rem;
+  padding: 0;
+  /* Gradient text for the title */
+  background: linear-gradient(135deg, #fff0f2 0%, #ffc8d0 50%, #f79ab0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font: 500 clamp(2.8rem, 7vw, 5.5rem)/1 var(--sw-serif);
+  letter-spacing: -.05em;
+  filter: drop-shadow(0 2px 8px #c0152a60);
+}
+
+.scarlet-hero p:last-child {
+  margin: 0;
+  max-width: 36rem;
+  color: #e8c8d0;
+  font-size: clamp(.98rem, 1.7vw, 1.08rem);
+  line-height: 1.6;
+}
+
+/* ── Emblem circle ──────────────────────────────────────────── */
+.scarlet-emblem {
+  display: grid;
+  width: min(100%, 15rem);
+  aspect-ratio: 1;
+  justify-self: center;
+  place-items: center;
+  border: 1.5px solid #d4608080;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 .5rem #c0152a18,
+    0 0 0 1rem #9b30cf0a,
+    0 16px 48px #8b000060;
+  background: radial-gradient(circle at 38% 30%, #5a1a30 0%, #3d0a22 50%, #200815 100%);
+  animation: emblem-pulse 4s ease-in-out infinite;
+}
+
+@keyframes emblem-pulse {
+  0%, 100% { box-shadow: 0 0 0 .5rem #c0152a18, 0 0 0 1rem #9b30cf0a, 0 16px 48px #8b000060; }
+  50%       { box-shadow: 0 0 0 .5rem #c0152a30, 0 0 0 1.4rem #9b30cf18, 0 16px 60px #c0152a50; }
+}
+
+.scarlet-emblem img {
+  width: 75%;
+  height: auto;
+  filter: drop-shadow(0 .4rem .6rem #c0152a60) brightness(1.08);
+}
+
+/* ── Mode radio group ───────────────────────────────────────── */
+.st-key-scarlet_modes [role="radiogroup"] {
+  flex-wrap: wrap;
+  gap: .4rem;
+  padding: .35rem;
+  background: var(--sw-paper);
+  border: 1px solid var(--sw-border);
+  border-radius: 1rem;
+}
+
+.st-key-scarlet_modes [role="radiogroup"] > label {
+  flex: 1 1 auto;
+  min-width: fit-content;
+  padding: .65rem 1rem;
+  margin: 0;
+  border-radius: .7rem;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .18s, box-shadow .18s;
+}
+
+.st-key-scarlet_modes [role="radiogroup"] > label:hover {
+  background: #3d1550;
+}
+
+.st-key-scarlet_modes [role="radiogroup"] > label:has(input:checked) {
+  background: linear-gradient(135deg, #5a0f35, #3d0a22);
+  box-shadow: 0 2px 10px #c0152a40, inset 0 1px 0 #f7a8b820;
+}
+
+/* Radio label text — force high-contrast on dark background */
+.st-key-scarlet_modes label p,
+.st-key-scarlet_modes label span,
+.st-key-scarlet_modes label div {
+  color: var(--sw-ink) !important;
+  font-weight: 650;
+  font-family: var(--sw-sans);
+}
+
+/* ── Shared card containers ─────────────────────────────────── */
+.st-key-scarlet_inputs,
+.st-key-scarlet_guide,
+.st-key-scarlet_results {
+  background: var(--sw-paper);
+  border: 1px solid var(--sw-border-lite);
+  border-radius: 1.25rem;
+  padding: clamp(1.1rem, 2.7vw, 1.9rem);
+  box-shadow: 0 8px 32px #0d071060, 0 1px 0 #5a206030 inset;
+  color: var(--sw-ink);
+}
+
+.st-key-scarlet_guide {
+  background: var(--sw-paper-raised);
+  border-color: var(--sw-border);
+}
+
+/* ── Card headings ──────────────────────────────────────────── */
+.st-key-scarlet_inputs h2,
+.st-key-scarlet_guide h2,
+.st-key-scarlet_results h2,
+.st-key-scarlet_results h3 {
+  color: var(--sw-ink) !important;
+  font-family: var(--sw-serif);
+  letter-spacing: -.025em;
+}
+
+.st-key-scarlet_guide h2 {
+  font-size: 1.45rem;
+  color: #f7c5cc !important;
+}
+
+.st-key-scarlet_inputs h2 {
+  color: #f5e0e5 !important;
+}
+
+/* ── All Streamlit text inside cards — force visibility ─────── */
+.st-key-scarlet_inputs p,
+.st-key-scarlet_inputs span,
+.st-key-scarlet_inputs div,
+.st-key-scarlet_guide p,
+.st-key-scarlet_guide span,
+.st-key-scarlet_guide div,
+.st-key-scarlet_results p,
+.st-key-scarlet_results span {
+  color: var(--sw-ink);
+}
+
+.st-key-scarlet_inputs label p,
+.st-key-scarlet_results summary p,
+.st-key-scarlet_results [data-testid="stMarkdownContainer"] p {
+  color: var(--sw-ink) !important;
+}
+
+/* ── Form element styling ───────────────────────────────────── */
+.st-key-scarlet_inputs [data-testid="stForm"] {
+  border: 0;
+  padding: 0;
+}
+
+.st-key-scarlet_inputs [data-baseweb="input"],
+.st-key-scarlet_inputs [data-baseweb="base-input"],
+.st-key-scarlet_inputs [data-baseweb="textarea"],
+.st-key-scarlet_inputs [data-baseweb="select"] > div {
+  background: var(--sw-field) !important;
+  border-color: var(--sw-field-border) !important;
+  border-radius: .6rem;
+  color: var(--sw-ink) !important;
+}
+
+/* Force text visible in all inputs — prevent blending with dark bg */
+.st-key-scarlet_inputs :is(input, textarea) {
+  color-scheme: dark;
+  background-color: var(--sw-field) !important;
+  color: var(--sw-ink) !important;
+  -webkit-text-fill-color: var(--sw-ink) !important;
+  caret-color: var(--sw-scarlet);
+  font-size: .97rem;
+  line-height: 1.5;
+}
+
+.st-key-scarlet_inputs :is(input, textarea)::placeholder {
+  color: var(--sw-caption) !important;
+  -webkit-text-fill-color: var(--sw-caption) !important;
+  opacity: 1;
+}
+
+/* Select dropdowns — text must be visible */
+.st-key-scarlet_inputs [data-baseweb="select"] :is(div, span, svg) {
+  color: var(--sw-ink) !important;
+}
+
+/* Focus rings */
+.st-key-scarlet_inputs :is([data-baseweb="input"], [data-baseweb="textarea"], [data-baseweb="select"] > div):focus-within {
+  box-shadow: 0 0 0 2px var(--sw-scarlet), 0 0 12px var(--sw-hex-glow);
+  border-color: var(--sw-scarlet) !important;
+}
+
+/* ── Popover / dropdown menus ───────────────────────────────── */
+[data-baseweb="popover"] :is([role="listbox"], [role="option"], [data-baseweb="menu"]) {
+  background: var(--sw-paper-top) !important;
+  color: var(--sw-ink) !important;
+  border: 1px solid var(--sw-border);
+}
+
+[data-baseweb="popover"] [role="option"] :is(div, span) {
+  color: var(--sw-ink) !important;
+}
+
+[data-baseweb="popover"] [role="option"]:is(:hover, :focus-visible, [aria-selected="true"]) {
+  background: #5a0f35 !important;
+  color: #fff0f2 !important;
+}
+
+/* ── Captions, sliders, tooltips — readable muted text ──────── */
+.st-key-scarlet_inputs [data-testid="stCaptionContainer"] p,
+.st-key-scarlet_inputs [data-testid="stSlider"] :is([data-testid="stTickBarMin"], [data-testid="stTickBarMax"], [data-testid="stThumbValue"]),
+.st-key-scarlet_inputs [data-testid="stTooltipIcon"],
+.st-key-scarlet_inputs [data-testid="InputInstructions"] {
+  color: var(--sw-subtext) !important;
+}
+
+/* Slider track */
+.st-key-scarlet_inputs [data-testid="stSlider"] [data-testid="stSliderTrack"] {
+  background: var(--sw-border-lite);
+}
+
+.st-key-scarlet_inputs [data-testid="stSlider"] [data-testid="stSliderTrackFill"] {
+  background: linear-gradient(90deg, var(--sw-crimson), var(--sw-scarlet));
+}
+
+/* ── Submit button ──────────────────────────────────────────── */
+.st-key-scarlet_inputs [data-testid="stFormSubmitButton"] button {
+  min-height: 2.9rem;
+  padding-inline: 1.5rem;
+  border: 1px solid var(--sw-ruby);
+  background: linear-gradient(135deg, var(--sw-crimson) 0%, var(--sw-scarlet) 60%, var(--sw-ruby) 100%);
+  color: #fff0f2 !important;
+  font-weight: 700;
+  font-family: var(--sw-sans);
+  letter-spacing: .03em;
+  border-radius: .65rem;
+  box-shadow: 0 4px 16px #c0152a40, inset 0 1px 0 #fff0f215;
+  transition: background .2s, box-shadow .2s, transform .1s;
+  text-shadow: 0 1px 2px #8b000050;
+}
+
+.st-key-scarlet_inputs [data-testid="stFormSubmitButton"] button:hover {
+  background: linear-gradient(135deg, #a81836 0%, #cc1a2e 60%, #a81836 100%);
+  box-shadow: 0 6px 24px #c0152a60, 0 0 0 1px #f7a8b830;
+  transform: translateY(-1px);
+}
+
+.st-key-scarlet_inputs [data-testid="stFormSubmitButton"] button:active {
+  transform: translateY(0);
+}
+
+.st-key-scarlet_inputs [data-testid="stFormSubmitButton"] button:focus-visible,
+.st-key-scarlet_modes label:has(input:focus-visible) {
+  outline: 2px solid var(--sw-rose);
+  outline-offset: 3px;
+}
+
+/* ── Explanation & intro text ───────────────────────────────── */
+.scarlet-explanation p,
+.scarlet-intro {
+  margin: 0;
+  color: var(--sw-subtext) !important;
+  font-size: .96rem;
+  line-height: 1.6;
+}
+
+.scarlet-explanation p + p { margin-top: .65rem; }
+
+.scarlet-explanation strong {
+  color: var(--sw-ink) !important;
+  font-weight: 650;
+}
+
+/* ── Example label ──────────────────────────────────────────── */
+.scarlet-example-label {
+  margin: .4rem 0 0;
+  font-size: .75rem;
+  font-weight: 700;
+  color: #f7a8b8 !important;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-family: var(--sw-sans);
+  text-shadow: 0 0 8px #c0152a60;
+}
+
+/* ── Code block (example input) ─────────────────────────────── */
+.st-key-scarlet_guide pre {
+  background: var(--sw-void) !important;
+  color: var(--sw-ink) !important;
+  border: 1px solid var(--sw-border-lite);
+  border-radius: .65rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.st-key-scarlet_guide pre code,
+.st-key-scarlet_guide pre code span {
+  color: var(--sw-ink) !important;
+  background: transparent !important;
+}
+
+/* Code copy button */
+.st-key-scarlet_guide [data-testid="stCode"] button {
+  background: var(--sw-paper-raised);
+  color: var(--sw-rose) !important;
+  border: 1px solid var(--sw-border);
+  border-radius: .4rem;
+  transition: background .15s;
+}
+
+.st-key-scarlet_guide [data-testid="stCode"] button:hover {
+  background: var(--sw-plum);
+}
+
+/* ── Results link buttons ───────────────────────────────────── */
+.st-key-scarlet_results [data-testid="stLinkButton"] a {
+  background: var(--sw-paper-raised);
+  color: var(--sw-rose) !important;
+  border: 1px solid var(--sw-border);
+  border-radius: .55rem;
+  transition: background .15s, box-shadow .15s;
+}
+
+.st-key-scarlet_results [data-testid="stLinkButton"] a:hover {
+  background: var(--sw-plum);
+  box-shadow: 0 2px 10px #c0152a30;
+}
+
+/* ── Info / warning / error alerts ──────────────────────────── */
+.st-key-scarlet_results [data-testid="stAlert"] [role="alert"] {
+  background: #2d0a20;
+  color: var(--sw-ink) !important;
+  border: 1px solid #7a2050;
+  border-radius: .75rem;
+}
+
+.st-key-scarlet_results [data-testid="stAlert"] [role="alert"] p,
+.st-key-scarlet_results [data-testid="stAlert"] [role="alert"] span {
+  color: var(--sw-ink) !important;
+}
+
+/* ── Caption in results ─────────────────────────────────────── */
+.st-key-scarlet_results [data-testid="stCaptionContainer"] p {
+  color: var(--sw-subtext) !important;
+}
+
+/* ── Expanders ───────────────────────────────────────────────── */
+.st-key-scarlet_results [data-testid="stExpander"] {
+  border-radius: .75rem;
+  background: var(--sw-paper-raised);
+  border: 1px solid var(--sw-border-lite);
+  transition: box-shadow .2s;
+}
+
+.st-key-scarlet_results [data-testid="stExpander"]:hover {
+  box-shadow: 0 4px 16px #8b000030;
+}
+
+.st-key-scarlet_results [data-testid="stExpander"] details {
+  border-color: var(--sw-border);
+}
+
+/* Expander summary text */
+.st-key-scarlet_results [data-testid="stExpander"] summary p,
+.st-key-scarlet_results [data-testid="stExpander"] summary span {
+  color: var(--sw-ink) !important;
+  font-weight: 600;
+}
+
+/* ── stText elements ─────────────────────────────────────────── */
+.st-key-scarlet_results [data-testid="stText"],
+.st-key-scarlet_results [data-testid="stText"] > div {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--sw-ink) !important;
+  font-size: .95rem;
+  line-height: 1.55;
+}
+
+/* ── Global Streamlit default text overrides ─────────────────── */
+/* Covers elements that fall outside named containers */
+[data-testid="stAppViewContainer"] [data-testid="stMarkdownContainer"] p,
+[data-testid="stAppViewContainer"] [data-testid="stMarkdownContainer"] li,
+[data-testid="stAppViewContainer"] [data-testid="stMarkdownContainer"] span,
+[data-testid="stAppViewContainer"] [data-testid="stText"] p {
+  color: var(--sw-ink);
+}
+
+/* Streamlit default button (non-submit) */
+[data-testid="stAppViewContainer"] button[kind="secondary"],
+[data-testid="stAppViewContainer"] [data-testid="baseButton-secondary"] {
+  background: var(--sw-paper-raised);
+  color: var(--sw-rose) !important;
+  border: 1px solid var(--sw-border);
+  border-radius: .6rem;
+}
+
+/* Spinner text */
+[data-testid="stSpinner"] p {
+  color: var(--sw-subtext) !important;
+}
+
+/* ── Scrollbar styling (Webkit) ──────────────────────────────── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--sw-void); }
+::-webkit-scrollbar-thumb {
+  background: var(--sw-plum);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--sw-mist); }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  [data-testid="stMainBlockContainer"] { padding-top: 2.5rem; }
+
+  .scarlet-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(5rem, 24%);
+    gap: .9rem;
+    border-radius: 1.15rem;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .scarlet-hero h1 { font-size: clamp(2rem, 8.4vw, 3.35rem); }
+  .scarlet-hero p:last-child { font-size: .92rem; }
+
+  [data-testid="stHorizontalBlock"]:has(> [data-testid="stColumn"] .st-key-scarlet_guide) {
+    flex-wrap: wrap;
+  }
+
+  [data-testid="stHorizontalBlock"]:has(> [data-testid="stColumn"] .st-key-scarlet_guide) > [data-testid="stColumn"] {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .st-key-scarlet_modes [role="radiogroup"] > label { padding: .5rem .65rem; }
+}

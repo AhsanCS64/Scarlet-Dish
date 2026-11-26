@@ -775,6 +775,40 @@
     margin-top: 0.15rem;
   }
 
+/* The built-in Material icon can show its ligature text ("ar") when its font
+   is unavailable. Hide only that icon, then draw a font-independent chevron. */
+[data-testid="stExpander"] summary {
+  list-style: none;
+}
+[data-testid="stExpander"] summary::marker,
+[data-testid="stExpander"] summary::-webkit-details-marker {
+  content: "";
+  display: none;
+}
+[data-testid="stExpander"] summary [data-testid="stExpanderToggleIcon"],
+[data-testid="stExpander"] summary [data-testid="stIconMaterial"],
+[data-testid="stExpander"] summary .material-symbols-rounded,
+[data-testid="stExpander"] summary .material-symbols-outlined,
+[data-testid="stExpander"] summary .material-icons,
+[data-testid="stExpander"] summary > svg {
+  display: none !important;
+}
+[data-testid="stExpander"] summary::before {
+  content: "";
+  display: block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid var(--sw-rose-gold);
+  border-bottom: 2px solid var(--sw-rose-gold);
+  transform: rotate(-45deg);
+  transition: transform 0.2s var(--sw-ease);
+  flex: none;
+  margin: 0.48rem 0.4rem 0 0.25rem;
+}
+[data-testid="stExpander"] details[open] > summary::before {
+  transform: rotate(45deg);
+}
+
 /* ── stText elements ───────────────────────────────────────── */
 .st-key-scarlet_results [data-testid="stText"],
 .st-key-scarlet_results [data-testid="stText"] > div {
@@ -860,4 +894,76 @@
   }
 
   .st-key-scarlet_modes [role="radiogroup"] > label { padding: 0.55rem 0.7rem; }
+}
+
+/* ── Result cards: score badge, cuisine/category tags, ingredient chips ── */
+.scarlet-result-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0.25rem 0 0.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--sw-border-lite);
+}
+
+.scarlet-score {
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--sw-crimson), var(--sw-scarlet));
+  color: #fff6f8 !important;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: var(--sw-sans);
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 10px rgba(225, 29, 72, 0.35);
+}
+
+.scarlet-tag {
+  padding: 0.18rem 0.55rem;
+  margin: 0;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(245, 194, 184, 0.22);
+  background: rgba(31, 13, 37, 0.5);
+  color: var(--sw-rose-gold) !important;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: var(--sw-sans);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.scarlet-chip {
+  display: inline-block;
+  padding: 0.22rem 0.6rem;
+  margin: 0.15rem 0.25rem 0.15rem 0;
+  border-radius: 0.55rem;
+  border: 1px solid rgba(245, 194, 184, 0.3);
+  background: rgba(245, 194, 184, 0.08);
+  color: var(--sw-ink) !important;
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: var(--sw-sans);
+}
+
+.scarlet-chip-seasonal {
+  border-color: rgba(157, 78, 221, 0.35);
+  background: rgba(157, 78, 221, 0.1);
+  color: #e4c7cf !important;
+}
+
+.scarlet-chip-missing {
+  border-color: rgba(225, 29, 72, 0.35);
+  background: rgba(225, 29, 72, 0.08);
+  color: #fbcfe8 !important;
+}
+
+.scarlet-result-label {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--sw-rose-gold) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: var(--sw-kicker-font);
 }

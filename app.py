@@ -94,18 +94,45 @@ def setting(name):
         return None
 
 
+def ingredient_chips(items, kind="match"):
+    if not items:
+        return ""
+    extra = "scarlet-chip-seasonal" if kind == "seasonal" else "scarlet-chip-missing" if kind == "missing" else ""
+    return "".join(f'<span class="scarlet-chip {extra}">{item}</span>' for item in items)
+
+
 def listing(results, pantry=False, *, heading=None):
     if heading:
         st.header(heading, anchor=False)
     if not results:
         st.info("No matching recipes. Try another query or ingredient.")
     for row in results:
-        with st.expander(f"{row['title']} · {row['cuisine']} · {row['recipe_id']}"):
-            st.write(row["category"])
-            st.write("Matches · " + (", ".join(row.get("matched_ingredients", [])) or "None"))
+        score = row.get("score", 0)
+        matched = row.get("matched_ingredients", []) or []
+        with st.expander(f"{row['title']}  ·  {row['recipe_id']}"):
+            st.html(
+                f"""
+                <div class="scarlet-result-meta">
+                  <span class="scarlet-score">{score:.2f}</span>
+                  <span class="scarlet-tag scarlet-cuisine">{row.get('cuisine', '')}</span>
+                  <span class="scarlet-tag scarlet-category">{row.get('category', '')}</span>
+                </div>
+                """
+            )
+            if matched:
+                st.html('<p class="scarlet-result-label">Matched ingredients</p>')
+                st.html(ingredient_chips(matched, "match"))
             if pantry:
-                st.write("Missing essentials · " + (", ".join(row["missing_essentials"]) or "None"))
-                st.write("Seasonal ingredients · " + (", ".join(row["in_season_ingredients"]) or "None"))
+                seasonal = row.get("in_season_ingredients", []) or []
+                missing = row.get("missing_essentials", []) or []
+                if seasonal:
+                    st.html('<p class="scarlet-result-label">In season</p>')
+                    st.html(ingredient_chips(seasonal, "seasonal"))
+                if missing:
+                    st.html('<p class="scarlet-result-label">Missing essentials</p>')
+                    st.html(ingredient_chips(missing, "missing"))
+            if not matched and not pantry:
+                st.caption("No shared ingredient tags.")
 
 
 def show_adaptation(result):

@@ -757,7 +757,6 @@
   background: #1c0c24;
   border: 1px solid rgba(245, 194, 184, 0.18);
   margin-bottom: 0.55rem;
-  overflow: hidden;
   transition:
     border-color 0.25s var(--sw-ease),
     box-shadow 0.25s var(--sw-ease),
@@ -774,6 +773,7 @@
 
 .st-key-scarlet_results [data-testid="stExpander"] details {
   border: none !important;
+  border-radius: 0.85rem !important;
   background: transparent !important;
 }
 
@@ -795,14 +795,15 @@
 }
 
 .st-key-scarlet_results [data-testid="stExpanderDetails"] {
-  background: rgba(16, 7, 20, 0.72);
+  background: rgba(16, 7, 20, 0.78);
   border-top: 1px solid rgba(245, 194, 184, 0.14) !important;
+  border-radius: 0 0 0.85rem 0.85rem;
   padding: 1rem 1.2rem 1.15rem !important;
 }
 
 /* ── stText elements ───────────────────────────────────────── */
 .st-key-scarlet_results [data-testid="stText"],
-.st-key-scarlet_results [data-testid="stText"] > span {
+.st-key-scarlet_results [data-testid="stText"] :is(div, span, p):not([data-testid="stIconMaterial"]) {
   white-space: pre-wrap !important;
   overflow-wrap: anywhere !important;
   word-break: break-word !important;

@@ -123,6 +123,8 @@ class Retrieval:
                 directory = self.encoder_directory()
             else:
                 directory = self.directory / ('encoder' if model_name == 'fine' else 'frozen_encoder')
+                if model_name == 'fine' and not directory.exists() and (self.directory / 'config.json').is_file():
+                    directory = self.directory
             if not directory.exists():
                 return None
             self.encoder = (model_name, *load_encoder(directory))

@@ -72,7 +72,7 @@ All 11 production files are verified by byte size and SHA-256 before use. The re
 ## Deployment — Streamlit Community Cloud
 
 1. Push the contents of the `github/` folder to the root of a GitHub repository. The detailed release runbook is in `release-v3/RELEASE.md` in the source workspace; it is not part of this deployable folder.
-2. In **Create app**, select the repo, branch `main`, file `app.py`, Python **3.13**.
+2. In **Create app**, select `AhsanCS64/Scarlet-Dish`, branch `master`, file `app.py`, Python **3.13**.
 3. Paste into **Secrets**:
 
 ```toml

@@ -37,7 +37,9 @@ class RecipeSystem:
         return self._retrieval
 
     def _encoder_directory(self):
-        return self._assets(ENCODER_FILES) / "encoder"
+        directory = self._assets(ENCODER_FILES)
+        nested = directory / "encoder"
+        return nested if (nested / "config.json").is_file() else directory
 
     def recommend_from_pantry(self, ingredients, season=None, top_k=5):
         return self.retrieval.recommend(ingredients, season, top_k)

@@ -13,22 +13,40 @@ class AssetError(RuntimeError):
     """An incomplete, mismatched or inaccessible deployment bundle."""
 
 
+def _candidate_paths(directory, name):
+    yield directory / name
+    if name.startswith("encoder/"):
+        yield directory / name.removeprefix("encoder/")
+
+
+def _download_patterns(files):
+    patterns = []
+    for name in files:
+        patterns.append(name)
+        if name.startswith("encoder/"):
+            patterns.append(name.removeprefix("encoder/"))
+    return patterns
+
+
 def verify_assets(directory, files=ASSETS):
     directory = Path(directory).expanduser().resolve()
     for name in files:
         expected = ASSETS[name]
-        path = directory / name
-        try:
-            if path.stat().st_size == expected["bytes"]:
-                with path.open("rb") as stream:
-                    if file_digest(stream, "sha256").hexdigest() == expected["sha256"]:
-                        continue
-        except OSError:
-            pass
-        raise AssetError(
-            f"Missing or mismatched asset: {name} in {directory}. "
-            "Point RECIPE_SYSTEM_DIR to a complete V3 bundle or verify the Hub commit."
-        )
+        matched = False
+        for path in _candidate_paths(directory, name):
+            try:
+                if path.stat().st_size == expected["bytes"]:
+                    with path.open("rb") as stream:
+                        if file_digest(stream, "sha256").hexdigest() == expected["sha256"]:
+                            matched = True
+                            break
+            except OSError:
+                pass
+        if not matched:
+            raise AssetError(
+                f"Missing or mismatched asset: {name} in {directory}. "
+                "Point RECIPE_SYSTEM_DIR to a complete V3 bundle or verify the Hub commit."
+            )
     return directory
 
 
@@ -46,7 +64,7 @@ def resolve_assets(local=None, repo=None, revision=None, token=None, *, files=AS
 
             snapshot = snapshot_download(
                 repo_id=repo, revision=revision.lower(), repo_type="model",
-                token=token or False, allow_patterns=list(files),
+                token=token or False, allow_patterns=_download_patterns(files),
             )
         except Exception as error:
             raise AssetError(
